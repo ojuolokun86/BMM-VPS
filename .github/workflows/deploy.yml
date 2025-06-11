@@ -1,0 +1,29 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main  # Change to your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H 3.134.90.169 >> ~/.ssh/known_hosts
+
+    - name: Deploy to VPS
+      run: |
+        ssh ubuntu@3.134.90.169 << 'EOF'
+          cd /home/ubuntu/your-bot-folder
+          git pull origin main
+          pm2 restart techitoon-bot
+        EOF
