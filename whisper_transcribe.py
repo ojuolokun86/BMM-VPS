@@ -3,7 +3,7 @@ import whisper
 
 def transcribe_audio(audio_path):
     try:
-        model = whisper.load_model("medium")  # Use "base" model; change to "tiny", "medium", or "large" if needed
+        model = whisper.load_model("base")  # Use "base" model; change to "tiny", "medium", or "large" if needed
         result = model.transcribe(audio_path)
         print(result["text"])  # Output the transcription
     except Exception as e:
