@@ -3,7 +3,7 @@ const { lmSocketInstances } = require('../utils/globalStore');
 
 // Use your LM's public URL
 //const LM_URL = 'https://load-manager.fly.dev';
-const LM_URL = process.env.LM_URL; // For local development
+const LM_URL = process.env.LM_URL; // For local development /////////
 console.log(`Connecting to LM at ${LM_URL}/bot-server`);
 
 function getOrCreateLmSocket(authId) {
