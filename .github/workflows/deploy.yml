@@ -19,4 +19,4 @@ jobs:
             cd BMM-VPS
             git pull origin main
             npm install
-            pm2 restart techitoon-bot || pm2 start src/index.js --name techitoon-bot
+            pm2 restart  bmm-bot || pm2 start src/index.js --name  bmm-bot
