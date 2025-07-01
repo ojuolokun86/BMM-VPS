@@ -16,7 +16,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}  # Ensure this secret exists
           script: |
-            cd BMM-VPS
+            cd ~/BMM-VPS
             git pull origin main
             RUN npm install @whiskeysockets/baileys@latest
             npm install
